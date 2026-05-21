@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Letter for Anshul</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#07060c;
+  color:#f5f2ec;
+  font-family:'Playfair Display',serif;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(rgba(10,8,18,0.85),rgba(10,8,18,0.85)),
+    url("https://images.unsplash.com/photo-1502602898657-3e91760cbb34");
+  background-size:cover;
+  background-position:center;
+  filter:blur(1px);
+}
+
+/* SECTIONS */
+.section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:40px 20px;
+}
+.hidden{display:none}
+
+/* ENVELOPE */
+.envelope{
+  width:320px;
+  height:220px;
+  background:#f3eadc;
+  border-radius:8px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);
+  position:relative;
+  cursor:pointer;
+}
+.envelope:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,#f7efe3,#e8dcc8);
+  border-radius:8px;
+}
+.seal{
+  position:absolute;
+  width:46px;
+  height:46px;
+  background:#8b1d2c;
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+.note{
+  margin-top:30px;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  opacity:.8;
+}
+
+/* LETTER */
+.paper{
+  max-width:760px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #f9f3e8,
+      #f9f3e8 30px,
+      #e6dbc9 31px
+    );
+  color:#3b2b1f;
+  border-radius:14px;
+  padding:70px 60px;
+  font-family:'Great Vibes',cursive;
+  font-style:italic;
+  font-size:28px;
+  line-height:1.75;
+  box-shadow:0 40px 90px rgba(0,0,0,0.6);
+  position:relative;
+  animation:fadeUp 2s ease;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.paper:before{
+  content:"❤️   🌹   ✨";
+  position:absolute;
+  top:20px;
+  left:30px;
+  opacity:.5;
+}
+.paper:after{
+  content:"✨   🌹   ❤️";
+  position:absolute;
+  bottom:20px;
+  right:30px;
+  opacity:.5;
+}
+
+/* PHOTO IN LETTER */
+.photo{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 20px;
+  border:4px solid #e6dbc9;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* MEMORY TITLES */
+.memory-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+/* POLAROID */
+.polaroid{
+  background:#fff;
+  padding:14px 14px 30px;
+  width:260px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  margin:20px auto;
+}
+.polaroid img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+/* BUTTONS */
+button{
+  margin:12px;
+  padding:14px 28px;
+  border-radius:30px;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+}
+.yes{
+  background:#e8c7b0;
+}
+.no{
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+}
+#response{
+  margin-top:24px;
+  font-style:italic;
+  opacity:.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- OPENING -->
+<div class="section" id="step1">
+  <div class="envelope" onclick="go(2)">
+    <div class="seal">❤️</div>
+  </div>
+  <div class="note">For Anshul<br>Some feelings never really leave…</div>
+</div>
+
+<!-- LETTER -->
+<div class="section hidden" id="step2">
+  <div class="paper">
+    <div class="photo">
+      <img src="anshul.png">
+    </div>
+
+    Bonjour Anshul… ❤️  
+    <br><br>
+    Before life became complicated,  
+    there was us.
+    <br><br>
+    I still remember our first meeting —  
+    the ease, the calm, the way everything felt safe.
+    <br><br>
+    Our first date comes back to me often.  
+    Your laugh. The warmth. The comfort of being near you.
+    <br><br>
+    Somewhere along the way,  
+    I didn’t protect what we had the way I should have.  
+    I am truly sorry for that.
+    <br><br>
+    Losing you taught me your value —  
+    quietly, deeply, without drama.
+    <br><br>
+    I still love you softly.  
+    I still miss you in the ordinary moments.
+  </div>
+
+  <button onclick="go(3)">Continue</button>
+</div>
+
+<!-- MEMORIES -->
+<div class="section hidden" id="step3">
+  <div class="memory-title">What I Miss</div>
+  <div style="font-family:'Great Vibes',cursive;font-size:30px">
+    The comfort.<br>
+    The conversations.<br>
+    The future I imagined.<br>
+    Us.
+  </div>
+
+  <button onclick="go(4)">One last thing</button>
+</div>
+
+<!-- CHOICE -->
+<div class="section hidden" id="step4">
+  <div class="paper" style="font-size:26px">
+    If somewhere in your heart…  
+    there is still even a little space for us,  
+    I would cherish another chance  
+    with far more honesty,  
+    softness,  
+    and gratitude this time.
+  </div>
+
+  <h3 style="margin-top:30px">Would you like to give our story another chance?</h3>
+
+  <button class="yes" onclick="reply('yes')">Maybe Yes ❤️</button>
+  <button class="no" onclick="reply('no')">I Need More Time</button>
+
+  <div id="response"></div>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll('.section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById('step'+n).classList.remove('hidden');
+}
+function reply(t){
+  document.getElementById('response').innerHTML =
+    "No matter what happens… thank you for being one of the most meaningful parts of my life.";
+}
+</script>
+
+</body>
+</html>
